@@ -20,13 +20,11 @@ import Services from "./components/Services.vue";
 import Projects from "./components/Projects.vue";
 import Contact from "./components/Contact.vue";
 import Footer from "./components/Footer.vue";
-import Slider from "./components/Slider.vue";
 export default {
   name: "App",
   components: {
     Navbar,
     Hero,
-    Slider,
     About,
     Languages,
     Services,

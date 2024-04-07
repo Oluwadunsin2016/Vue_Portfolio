@@ -170,7 +170,6 @@ if (localStorage.isChecked) {
 </script>
 
 <style>
-@import "../../dist/output.css";
 
 /* .view-enter-from,.view-leave-to{
 opacity:0;
