@@ -36,10 +36,7 @@
 <script>
 
 import Typewriter from 'typewriter-effect/dist/core';
-// import profileImage from "../assets/images/Untitled design (1).png";
-// import my_cv from '../assets/cv/Steven.pdf'
 import ProfileImage from './ProfileImage.vue';
-import Slider from './Slider.vue';
 import axios from 'axios';
 import Loader from "./Loader.vue";
 import { watch } from 'vue';
@@ -48,7 +45,6 @@ export default {
   name: "Hero",
   components:{
   ProfileImage,
-      Slider,
       Loader,
   },
   data() {
