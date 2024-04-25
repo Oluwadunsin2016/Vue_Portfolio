@@ -1,7 +1,7 @@
 <template>
   <!-- <transition name="modal"> -->
     <div class="transition-all duration-200 fixed top-0 left-0 w-[100%] h-[100%] dark:bg-gray-900 bg-gray-50 dark:text-gray-200 z-[9998]">
-      <div class="px-10 md:px-[5rem] lg:px-[15rem] py-10 flex flex-col justify-between h-full">
+      <div class="px-6 md:px-[5rem] lg:px-[15rem] py-10 flex flex-col justify-between h-full">
       <div class="">
       <img :src="`${projectDir}${detail?.image}`" alt="" class="w-full md:h-[25rem] rounded-lg">
           <div class="flex justify-between my-4">

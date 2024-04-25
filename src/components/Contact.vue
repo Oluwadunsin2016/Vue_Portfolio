@@ -7,7 +7,7 @@
     <p class="text-center my-3 font-semibold">Got a project? Let's talk</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-6 gap-4">
-      <div class="px-4 md:px-0 col-span-1 sm:col-span-2">
+      <div class="px-4 md:px-6 col-span-1 sm:col-span-2">
         <h4 class="uppercase font-semibold mt-4">Contact info</h4>
         <ul class="px-2">
           <li class="my-4 flex gap-4 items-center">

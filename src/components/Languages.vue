@@ -1,5 +1,5 @@
 <template>
-  <div id="languages" class="px-4 lg:px-8 py-8">
+  <div id="languages" class="px-4 md:px-6 lg:px-8 py-8">
     <h1 class="text-center text-3xl font-bold">Programming Languages</h1>
     <div class="flex justify-center items-center flex-wrap gap-6 mt-8 px-4 md:px-6">
 

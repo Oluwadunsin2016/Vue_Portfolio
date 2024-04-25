@@ -1,6 +1,6 @@
 <template>
   <header class="bg-gray-100 dark:bg-gray-800 dark:text-gray-200 py-4 dark:shadow-gray-900 z-[90] shadow-md fixed w-full top-0">
-    <div class="mx-auto px-4 lg:px-8">
+    <div class="mx-auto px-6 lg:px-8">
       <div class="flex justify-between items-center relative">
         <h1 class="text-2xl tracking-wider uppercase font-helvetica text-blue-400">Portfolio</h1>
         <ul class="gap-4 hidden md:flex cursor-pointer">
@@ -11,11 +11,7 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="hidden items-center gap-4 md:flex">
-          <button class="bg-blue-700 py-1 px-3 rounded text-white">
-            Hire Me
-          </button>
-          |
+        <div class="hidden items-center md:flex">
            <span :class="`${!showLabelTwo&&'hidden'} animate-bounce absolute top-10 right-0 bg-slate-200 dark:bg-slate-500 rounded-full px-3 py-1`">{{isChecked?'Change to light mode':'Change to dark mode'}}</span>
         <label for="toggleSwitch" class="relative h-6 w-12 cursor-pointer" @mouseover="showLabelTwo=true" @mouseleave="showLabelTwo=false">
           <input
@@ -113,9 +109,6 @@
           <a href="#contact" class="block">Contact</a>
         </li>
       </ul>
-      <button class="bg-blue-700 py-1 px-3 rounded text-white my-2">
-        Hire Me
-      </button>
     </div>
 </template>
 
