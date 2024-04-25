@@ -12,21 +12,20 @@
 </svg>
   <div class="w-full  dark:shadow-gray-800 dark:shadow-md shadow-sm rounded-lg">
   <div class="profile h-[18rem] w-[18rem] mx-auto">
-  <img :src="`${profilePicture??defaultImage}`" alt="" class="w-full object-top h-full object-cover">
+  <img :src="`${profilePicture}`" alt="" class="w-full object-top h-full object-cover">
   </div>
   </div>
 </template>
 
 <script>
-// import profileImage from "../assets/images/Untitled design (1).png";
-import defaultImage from "../assets/images/defaultImg.jpg";
+// import profileImage from "../assets/images/Untitled design (1).png"
 export default {
 props:{
 profilePicture:String
 },
 data() {
     return {
-       defaultImage,
+       
            }
 },
 }

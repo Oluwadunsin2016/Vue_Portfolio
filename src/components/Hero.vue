@@ -36,6 +36,7 @@
 <script>
 
 import Typewriter from 'typewriter-effect/dist/core';
+import defaultImage from "../assets/images/defaultImg.jpg";
 import ProfileImage from './ProfileImage.vue';
 import axios from 'axios';
 import Loader from "./Loader.vue";
@@ -52,6 +53,7 @@ export default {
       profileImage:'',
       specializations:[],
       currentUser: {},
+      defaultImage,
       // my_cv,
     };
   },
@@ -80,7 +82,7 @@ new Typewriter(write, {
       window.emitter.emit('current_user',res.data)
       console.log(res.data);
         this.currentUser = res.data;
-        this.profileImage =`${profileDir}${res.data?.profileImage}` 
+        this.profileImage =res.data?.profileImage?`${profileDir}${res.data?.profileImage}`:defaultImage 
         console.log(this.profileImage);
        window.emitter.emit("changeLoaderStatus", false);
       })
