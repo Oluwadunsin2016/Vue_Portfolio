@@ -1,13 +1,13 @@
 <template>
   <div
     id="contact"
-    class="px-6 lg:px-8 py-16 bg-slate-100 dark:bg-gray-800 rounded-md"
+    class="px-4 lg:px-8 py-16 bg-slate-100 dark:bg-gray-800 rounded-md"
   >
     <h1 class="text-center font-bold text-3xl">Contact Me</h1>
     <p class="text-center my-3 font-semibold">Got a project? Let's talk</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-6 gap-4">
-      <div class="px-6 md:px-0 col-span-1 sm:col-span-2">
+      <div class="px-4 md:px-0 col-span-1 sm:col-span-2">
         <h4 class="uppercase font-semibold mt-4">Contact info</h4>
         <ul class="px-2">
           <li class="my-4 flex gap-4 items-center">
@@ -120,7 +120,7 @@
         </div>
       </div>
       <form
-        class="px-6 md:px-0 my-4 col-span-1 sm:col-span-4 grid grid-cols-1 md:grid-cols-2 gap-4"
+        class="px-4 md:px-0 my-4 col-span-1 sm:col-span-4 grid grid-cols-1 md:grid-cols-2 gap-4"
         v-on:submit.prevent="submitInformation"
       >
         <div class="">

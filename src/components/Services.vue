@@ -1,5 +1,5 @@
 <template>
-<div id="services" class="px-6 lg:px-8 py-16">
+<div id="services" class="px-4 lg:px-8 py-16">
 <h1 class="text-center text-3xl font-bold mb-4">Services</h1>
   <div class=" flex flex-col md:flex-row gap-10 items-center justify-center">
     <div class="flex gap-2 shadow-lg p-4 rounded-md bg-yellow-50 shadow-yellow-200 dark:bg-gray-700 dark:shadow-gray-800">

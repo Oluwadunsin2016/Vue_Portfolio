@@ -4,7 +4,7 @@
       </transition>
   <div
     id="projects"
-    class="px-6 lg:px-8 my-10 py-6 shadow-md bg-slate-100 dark:bg-gray-800 dark:shadow-gray-850"
+    class="px-4 lg:px-8 my-10 py-6 shadow-md bg-slate-100 dark:bg-gray-800 dark:shadow-gray-850"
   >
     <h1 class="text-center text-3xl font-bold">Projects</h1>
     <p class="text-gray-500 dark:text-gray-300 my-2 text-center">

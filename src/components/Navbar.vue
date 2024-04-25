@@ -1,6 +1,6 @@
 <template>
   <header class="bg-gray-100 dark:bg-gray-800 dark:text-gray-200 py-4 dark:shadow-gray-900 z-[90] shadow-md fixed w-full top-0">
-    <div class="mx-auto px-6 lg:px-8">
+    <div class="mx-auto px-4 lg:px-8">
       <div class="flex justify-between items-center relative">
         <h1 class="text-2xl tracking-wider uppercase font-helvetica text-blue-400">Portfolio</h1>
         <ul class="gap-4 hidden md:flex cursor-pointer">

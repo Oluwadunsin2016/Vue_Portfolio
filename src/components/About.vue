@@ -1,7 +1,7 @@
 <template>
-  <div id="about" class="px-6 lg:px-8 py-8 shadow bg-slate-100 dark:bg-gray-800 dark:shadow-gray-850">
+  <div id="about" class="px-4 lg:px-8 py-8 shadow bg-slate-100 dark:bg-gray-800 dark:shadow-gray-850">
     <h1 class="text-3xl my-3 text-center font-bold">About Me</h1>
-    <div class="px-10 md:grid grid-cols-8 gap-4">
+    <div class="px-4 md:px-10 md:grid grid-cols-8 gap-4">
       <div class="col-span-2 flex items-center md:flex-col gap-5">
         <h1 class="text-9xl font-bold m-0">{{yearOfExperience}}</h1>
         <p class="text-xl font-bold m-0">
