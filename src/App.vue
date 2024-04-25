@@ -39,4 +39,14 @@ export default {
 *{
 scroll-behavior: smooth !important;
 }
+
+::-webkit-scrollbar{
+width:5px;
+background-color:#1F2937;
+}
+::-webkit-scrollbar-thumb{
+width:5px;
+background-color:#111827;
+border-radius: 5px;
+}
 </style>

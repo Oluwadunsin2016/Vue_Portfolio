@@ -222,7 +222,7 @@
 
 <script>
 import axios from "axios";
-import { baseURL, userId } from '../main';
+import userId, { baseURL } from '@/main';
 import Alert from './Alert.vue'
 export default {
   // name:"Contact"

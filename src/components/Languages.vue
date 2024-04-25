@@ -12,7 +12,7 @@
 
 <script>
 import axios from 'axios';
-import { baseURL, userId } from '../main';
+import userId, { baseURL } from '@/main';
 import Icon from './Icon.vue'
 export default {
 components:{

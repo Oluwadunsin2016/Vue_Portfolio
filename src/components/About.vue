@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { baseURL, userId } from '@/main';
+import userId, { baseURL } from '@/main';
 import axios from 'axios';
 
 

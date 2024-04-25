@@ -39,13 +39,13 @@
     <div class="px-5 overflow-x-hidden">
       <transition-group tag="div" name="projects" mode="out-in">
     <div
-      class="my-4 grid grid-cols-1 sm:grid-cols-2 gap-8 md:grid-cols-3"
+      class="my-4 grid grid-cols-1 sm:grid-cols-3 gap-8 md:grid-cols-4"
       v-if="currentLocation == 'All'"
     >
       <div
          v-for="(project, index) in selectedProjects"
           :key="index"
-          class="relative group h-[16rem] overflow-hidden rounded-lg col-span-1 cursor-pointer shadow-md dark:shadow-gray-700"
+          class="relative group h-[12rem] overflow-hidden rounded-lg col-span-1 cursor-pointer shadow-md dark:shadow-gray-700"
           @click="showDetail(project)"
       >
          <img
@@ -57,7 +57,7 @@
             class="absolute top-0 left-0 w-full h-full bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity z-10 rounded-lg"
           >
             <h4
-              class="absolute bottom-5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform group-hover:translate-y-0 duration-500 text-white right-0 bg-red-600/70 inline-block px-4 py-2 rounded-md font-bold"
+              class="absolute bottom-5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform group-hover:translate-y-0 duration-500 text-white right-0 bg-red-600/70 inline-block px-4 py-2 rounded-md text-center font-semibold"
             >
               {{ project.title }}
             </h4>
@@ -69,13 +69,13 @@
     <transition-group tag='div' v-for="(specialization, index) in specializations"
       :key="index"  name="projects" mode="out-in">
     <div
-      class="my-4 grid grid-cols-1 sm:grid-cols-2 gap-8 md:grid-cols-3"
+      class="my-4 grid grid-cols-1 sm:grid-cols-3 gap-8 md:grid-cols-4"
       v-if="currentLocation == specialization"
     >
       <div
          v-for="(project, index) in selectedProjects"
           :key="index"
-          class="relative group h-[16rem] overflow-hidden rounded-lg col-span-1 cursor-pointer shadow-md dark:shadow-gray-700"
+          class="relative group h-[12rem] overflow-hidden rounded-lg col-span-1 cursor-pointer shadow-md dark:shadow-gray-700"
           @click="showDetail(project)"
       >
         <img
@@ -87,7 +87,7 @@
             class="absolute top-0 left-0 w-full h-full bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity z-10 rounded-lg"
           >
             <h4
-              class="absolute bottom-5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform group-hover:translate-y-0 duration-500 text-white right-0 bg-red-600/70 inline-block px-4 py-2 rounded-md font-bold"
+              class="absolute bottom-5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform group-hover:translate-y-0 duration-500 text-white right-0 bg-red-600/70 inline-block px-4 py-2 rounded-md text-center font-semibold"
             >
               {{ project.title }}
             </h4>
@@ -118,7 +118,8 @@
 // import orange from "../assets/images/graphics/orange.jpg";
 import ProjectDetail from "./ProjectDetail.vue";
 import axios from "axios";
-import { baseURL, projectDir, userId } from "../main";
+import userId, { baseURL, projectDir } from "../main";
+// import userId from '../main';
 
 export default {
   name: "Projects",

@@ -10,15 +10,19 @@ import { faAngular, faCss3, faFacebook, faHtml5, faInstagram, faJs, faLinkedin, 
 import { TinyEmitter } from 'tiny-emitter';
 const app=createApp(App);
 
-
+// local directory
 // export const baseURL='http://127.0.0.1:8000/api/'
 // export const profileDir=`http://127.0.0.1:8000/storage/ProfileImages/`
 // export const projectDir='http://127.0.0.1:8000/storage/ProjectImages/'
 // export const cvDir='http://127.0.0.1:8000/storage/cv/'
-export const baseURL='http://steviano.infinityfreeapp.com/api/'
-export const profileDir=`http://steviano.infinityfreeapp.com/storage/ProfileImages/`
-export const projectDir='http://steviano.infinityfreeapp.com/storage/ProjectImages/'
-export const cvDir='http://steviano.infinityfreeapp.com/storage/cv/'
+
+
+// Remote directory
+export const baseURL='https://porfolio-server-production.up.railway.app/api/'
+export const profileDir=`https://porfolio-server-production.up.railway.app/storage/ProfileImages/`
+export const projectDir='https://porfolio-server-production.up.railway.app/storage/ProjectImages/'
+export const cvDir='https://porfolio-server-production.up.railway.app/storage/cv/';
+
 // // Get the current URL
 const currentUrl = window.location.href;
 
@@ -27,10 +31,17 @@ const urlParts = currentUrl.split('/');
 
 // // Get the last part of the URL which should be '1'
 const value = urlParts[urlParts.length - 1];
+
+let userId;
 console.log(currentUrl);
 console.log(urlParts);
-console.log(value);
-export const userId = value
+if(value.includes('#')){
+userId=value.split("#")[0]
+}else{
+userId=value
+}
+console.log(userId);
+export default userId
 
 window.emitter=new TinyEmitter()
 
