@@ -3,18 +3,7 @@
     class="my-10 px-4 mt-12 lg:px-8 py-[3rem] md:flex flex-row-reverse shadow bg-slate-100 dark:bg-gray-800 dark:shadow-gray-850"
     id="home"
   >
-  <!-- <Slider/> -->
-  <ProfileImage :profilePicture="profileImage" />
-    <!-- <div class="md:mx-10"> -->
-    <!-- <div class="myImage mx-auto"> -->
-      <!-- <img
-        :src="profileImage"
-        alt="Profile_Image"
-        width="400"
-        class="mx-auto rounded-md"
-      /> -->
-    <!-- </div> -->
-    <!-- </div> -->
+  <ProfileImage :profilePicture="currentUser?.profileImage??defaultImage" />
     <div class="w-full md:w-[80%] lg:w-[60%] mt-4 md:mx-10 px-5">
       <p class="font-semibold text-2xl">
         Hi, I'm <span class="text-blue-500">{{currentUser?.lastName}}</span>
@@ -41,7 +30,7 @@ import ProfileImage from './ProfileImage.vue';
 import axios from 'axios';
 import Loader from "./Loader.vue";
 import { watch } from 'vue';
-import userId, { baseURL, profileDir } from '@/main';
+import userId, { baseURL } from '@/main';
 export default {
   name: "Hero",
   components:{
@@ -50,18 +39,11 @@ export default {
   },
   data() {
     return {
-      profileImage:'',
       specializations:[],
       currentUser: {},
       defaultImage,
       // my_cv,
     };
-  },
-  computed: {
-    // myProfileImage() {
-    // console.log(`${profileDir}${this.currentUser?.profileImage}`);
-    //   return `${profileDir}${this.currentUser?.profileImage}` 
-    // },
   },
   mounted(){
    window.emitter.emit("changeLoaderStatus", true);
@@ -82,8 +64,6 @@ new Typewriter(write, {
       window.emitter.emit('current_user',res.data)
       console.log(res.data);
         this.currentUser = res.data;
-        this.profileImage =res.data?.profileImage?`${profileDir}${res.data?.profileImage}`:defaultImage 
-        console.log(this.profileImage);
        window.emitter.emit("changeLoaderStatus", false);
       })
       .catch((err) => {

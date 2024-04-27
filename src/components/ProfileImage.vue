@@ -18,7 +18,6 @@
 </template>
 
 <script>
-// import profileImage from "../assets/images/Untitled design (1).png"
 export default {
 props:{
 profilePicture:String

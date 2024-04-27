@@ -49,7 +49,7 @@
           @click="showDetail(project)"
       >
          <img
-            :src="`${projectDir}${project.image}`"
+            :src="project?.image"
             :alt="project.title"
             class="w-full h-full rounded-lg transform transition-transform ease-in-out duration-500 group-hover:scale-110"
           />
@@ -79,7 +79,7 @@
           @click="showDetail(project)"
       >
         <img
-            :src="`${projectDir}${project.image}`"
+            :src="project?.image"
             :alt="project.title"
             class="w-full h-full rounded-lg transform transition-transform ease-in-out duration-500 group-hover:scale-110"
           />
@@ -103,22 +103,9 @@
 </template>
 
 <script>
-// import Printivo from "../assets/images/projects/printivo.png";
-// import SLA from "../assets/images/projects/SLA.png";
-// import University from "../assets/images/projects/University.png";
-// import fitness from "../assets/images/projects/fitness.png";
-// import tic_tac_toe from "../assets/images/projects/tic_tac_toe.png";
-// import netflix from "../assets/images/projects/netflix.png";
-// import gallery from "../assets/images/projects/gallery.png";
-// import ecommerce from "../assets/images/projects/ecommerce.png";
-// import chatApp from "../assets/images/projects/chatApp.png";
-// import Open_door from "../assets/images/graphics/Open_door.jpeg";
-// import Prayer from "../assets/images/graphics/Prayer.jpeg";
-// import Raph from "../assets/images/graphics/EQ2.jpg";
-// import orange from "../assets/images/graphics/orange.jpg";
 import ProjectDetail from "./ProjectDetail.vue";
 import axios from "axios";
-import userId, { baseURL, projectDir } from "../main";
+import userId, { baseURL } from "../main";
 // import userId from '../main';
 
 export default {
@@ -128,7 +115,6 @@ export default {
   },
   data() {
     return {
-      projectDir,
       projectDetail: {},
       currentLocation: "All",
       selectedProjects: [],
@@ -136,114 +122,6 @@ export default {
       show: false,
       swiper: null,
       projects: [],
-      // projects: [
-      //   {
-      //     id: "Design1",
-      //     category: "web",
-      //     title: "printivo",
-      //     image: Printivo,
-      //     description: `It is a simple printivo front page design. Built with HTML and CSS`,
-      //     web_link: "https://printivo-xi.vercel.app/",
-      //     github_link: "https://github.com/Oluwadunsin2016/Printivo",
-      //   },
-      //   {
-      //     id: "Design2",
-      //     category: "web",
-      //     title: "She Leads Africa",
-      //     image: SLA,
-      //     description: `It is a simple SLA front page design. Built with HTML and CSS`,
-      //     web_link: "https://level-one-test-bice.vercel.app/",
-      //     github_link: "https://github.com/Oluwadunsin2016/LevelOne_Test",
-      //   },
-      //   {
-      //     id: "Design3",
-      //     category: "web",
-      //     title: "Biggest University",
-      //     image: University,
-      //     description: `A simple University web design with animation. Built with HTML, CSS and wow js`,
-      //     web_link: "https://university-website-design-css.vercel.app/",
-      //     github_link:
-      //       "https://github.com/Oluwadunsin2016/University-Website-design-css",
-      //   },
-      //   {
-      //     id: "Design4",
-      //     category: "web",
-      //     title: "Fitness",
-      //     image: fitness,
-      //     description: `A simple Fitness web design with animation. Built with HTML, CSS and wow js`,
-      //     web_link: "https://fitness-css.vercel.app/",
-      //     github_link: "https://github.com/Oluwadunsin2016/fitness-css",
-      //   },
-      //   {
-      //     id: "game",
-      //     category: "web",
-      //     title: "TIC TAC TOE",
-      //     image: tic_tac_toe,
-      //     description: `A lovable tic tac toe game. Built with HTML, CSS and JavaScript`,
-      //     web_link: "https://my-tictactoe-game.vercel.app/",
-      //     github_link: "https://github.com/Oluwadunsin2016/my-tictactoe-game",
-      //   },
-      //   {
-      //     id: "movieApp",
-      //     category: "web",
-      //     title: "Netflix",
-      //     image: netflix,
-      //     description: `A clone of netlix application where you can watch the latest movie. Built with React Js and tailwind CSS`,
-      //     web_link: "https://netflix-2-woad.vercel.app/",
-      //     github_link: "https://github.com/Oluwadunsin2016/Netflix_2",
-      //   },
-      //   {
-      //     id: "photo",
-      //     category: "web",
-      //     title: "Gallery",
-      //     image: gallery,
-      //     description: `A photo gallery application that allows you to save and view your pictures so that you won't loose them. Built with React Js and tailwind CSS`,
-      //     web_link: "https://gallery-gamma-three.vercel.app/",
-      //     github_link: "https://github.com/Oluwadunsin2016/Gallery",
-      //   },
-      //   {
-      //     id: "ecommerce",
-      //     category: "web",
-      //     title: "ALEXISCOM",
-      //     image: ecommerce,
-      //     description: `AlexisCom provides you with the latest products with cheapest prices, shop with them and enjoy the benefits. No regrets. Built with React Js`,
-      //     web_link: "https://alexiscom.netlify.app/",
-      //     github_link: "https://github.com/Oluwadunsin2016/Alexiscom_client",
-      //   },
-      //   {
-      //     id: "chatApp",
-      //     category: "web",
-      //     title: "Let's Discuss",
-      //     image: chatApp,
-      //     description: `Let's Discuss allows you to chat with your friends and loved ones in real time without obstruction. Try it, you will love it. Built with React Js and Node Js.`,
-      //     web_link: "https://discuss-with-me.netlify.app/",
-      //     github_link: "https://github.com/Oluwadunsin2016/Let_us_Discuss",
-      //   },
-      //   {
-      //     id: "door",
-      //     category: "graphics",
-      //     title: "Open Door",
-      //     image: Open_door,
-      //   },
-      //   {
-      //     id: "raph",
-      //     category: "graphics",
-      //     title: "Worrior",
-      //     image: Raph,
-      //   },
-      //   {
-      //     id: "prayer",
-      //     category: "graphics",
-      //     title: "Prayer",
-      //     image: Prayer,
-      //   },
-      //   {
-      //     id: "orange",
-      //     category: "graphics",
-      //     title: "Cut Orange",
-      //     image: orange,
-      //   },
-      // ],
     };
   },
   created() {
