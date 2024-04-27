@@ -99,7 +99,7 @@ res.data.forEach(specialization => {
 
   methods: {
     downloadCV() {
-    axios.get(`${baseURL}download-pdf/${this.user.userId}`).then(res=>{
+    axios.get(`${baseURL}download-pdf/${userId}`).then(res=>{
     console.log(res);
     }).catch((error) => {
           console.log(error);
