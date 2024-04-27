@@ -15,11 +15,12 @@
 
       <div class="flex justify-center md:justify-start gap-10 mt-10">
       <a href="https://meet.google.com/" class="bg-blue-500 rounded text-white py-2 px-4 hover:bg-blue-700">Book a Meeting</a>
-      <a :href="downloadCV" class="border-2 border-blue-700 rounded py-2 px-4 hover:bg-blue-700 hover:text-white">Download CV</a>
+      <button @click="downloadCV" class="border-2 border-blue-700 rounded py-2 px-4 hover:bg-blue-700 hover:text-white">Download CV</button>
       </div>   
     </div>
   </div>
   <Loader/>
+  <Alert :alertType="alertType" :showAlert="showAlert" :alertText="message" />
 </template>
 
 <script>
@@ -27,6 +28,7 @@
 import Typewriter from 'typewriter-effect/dist/core';
 import defaultImage from "../assets/images/defaultImg.jpg";
 import ProfileImage from './ProfileImage.vue';
+import Alert from './Alert.vue'
 import axios from 'axios';
 import Loader from "./Loader.vue";
 import { watch } from 'vue';
@@ -35,14 +37,17 @@ export default {
   name: "Hero",
   components:{
   ProfileImage,
+  Alert,
       Loader,
   },
   data() {
     return {
+     showAlert:false,
+        alertType:'',
+        message:'',
       specializations:[],
       currentUser: {},
       defaultImage,
-      // my_cv,
     };
   },
   mounted(){
@@ -86,15 +91,27 @@ res.data.forEach(specialization => {
         console.log(err.message);
       });
   },
-  computed: {
-    downloadCV() {
-    return `${baseURL}download-pdf/${userId}`
-    },
-  },
+  // computed: {
+  //   downloadCV() {
+  //   return `${baseURL}download-pdf/${userId}`
+  //   },
+  // },
 
   methods: {
-    name() {
-      
+    downloadCV() {
+    axios.get(`${baseURL}download-pdf/${this.user.userId}`).then(res=>{
+    console.log(res);
+    }).catch((error) => {
+          console.log(error);
+          if (error.response.data.message) { 
+            this.message=error.response.data.message
+      this.alertType='error'
+        this.showAlert=true
+      setTimeout(()=>{
+      this.showAlert=false
+      },2000)
+          }
+        });
     },
   },
 };
