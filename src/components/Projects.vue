@@ -154,7 +154,7 @@ export default {
         this.projectDetail = project;
         this.show = true;
       } else {
-        window.location.href = projectDir + project?.image;
+        window.location.href = project?.image;
       }
     },
 
