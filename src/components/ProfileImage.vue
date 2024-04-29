@@ -10,7 +10,7 @@
 </clipPath>
 </defs>
 </svg>
-  <div class="w-full  dark:shadow-gray-800 dark:shadow-md shadow-sm rounded-lg">
+  <div class="w-full">
   <div class="profile h-[18rem] w-[18rem] mx-auto">
   <img :src="`${profilePicture}`" alt="" class="w-full object-top h-full object-cover">
   </div>

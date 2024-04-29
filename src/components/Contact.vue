@@ -34,7 +34,7 @@
               <p class="text-gray-600 dark:text-gray-400 font-semibold">
                 Call or WhatsApp me:
               </p>
-              <a href="tel:`${currentUser.phone_number}`">{{
+              <a :href="`tel:${currentUser.phone_number}`">{{
                 currentUser?.phone_number
               }}</a>
               <!-- <a href="tel:+2348168225901">{{currentUser.phone_number}}</a> -->
