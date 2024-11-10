@@ -15,7 +15,8 @@ const app=createApp(App);
 
 
 // Remote directory
-export const baseURL='https://porfolio-server-production.up.railway.app/api/'
+// export const baseURL='https://porfolio-server-production.up.railway.app/api/'
+export const baseURL='https://porfolio-server-dnqn.onrender.com/api/'
 
 // // Get the current URL
 const currentUrl = window.location.href;
