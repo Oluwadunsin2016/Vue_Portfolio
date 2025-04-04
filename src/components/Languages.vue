@@ -1,7 +1,10 @@
 <template>
   <div id="languages" class="px-4 md:px-6 lg:px-8 py-8">
     <h1 class="text-center text-3xl font-bold">Programming Languages</h1>
-    <div class="flex justify-center items-center flex-wrap gap-6 mt-8 px-4 md:px-6">
+    <div v-if="isLoading" class="flex justify-center items-center min-h-[200px]">
+  <font-awesome-icon :icon="['fas', 'spinner']" spin class="text-blue-500 text-3xl" />
+    </div>
+    <div v-else class="flex justify-center items-center flex-wrap gap-6 mt-8 px-4 md:px-6">
 
      <a v-for="(language,i) in languages" :key="i" :id="getLanguage(language?.name)?.id" :href="getLanguage(language?.name)?.url">
      <Icon :title="language?.name" :color="getLanguage(language?.name)?.color" :size="getLanguage(language?.name)?.size" />
@@ -20,7 +23,8 @@ Icon,
 },
 data() {
   return {
-    languages: []
+    languages: [],
+    isLoading: true,
   }
 },
 
@@ -37,9 +41,11 @@ mounted(){
         console.log(this.languages);
          this.languages= res?.data
         }
+        this.isLoading= false;
       })
       .catch((err) => {
         console.log(err.message);
+        this.isLoading= false;
       });
 },
 methods: {

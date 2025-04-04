@@ -1,7 +1,10 @@
 <template>
 <div id="services" class="px-4 md:px-6 lg:px-8 py-16">
 <h1 class="text-center text-3xl font-bold mb-4">Services</h1>
-  <div class=" flex flex-col md:flex-row gap-10 items-center justify-center">
+<div v-if="isLoading" class="flex justify-center items-center min-h-[200px]">
+  <font-awesome-icon :icon="['fas', 'spinner']" spin class="text-blue-500 text-3xl" />
+    </div>
+  <div v-else class=" flex flex-col md:flex-row gap-10 items-center justify-center">
     <div class="flex gap-2 shadow-lg p-4 rounded-md bg-yellow-50 shadow-yellow-200 dark:bg-gray-700 dark:shadow-gray-800">
       <font-awesome-icon
         :icon="['fas', 'clock']"
@@ -41,14 +44,23 @@ export default {
   name: "services",
   data() {
     return {
-      expertise_information: ''
+      expertise_information: '',
+      isLoading: true 
     }
   },
 
   mounted(){
     window.emitter.on('expertiseInformation',(info)=>{
   this.expertise_information=info;
-  })
+  this.isLoading = false;
+  });
+
+
+  setTimeout(() => {
+      if (!this.expertise_information) {
+        this.isLoading = false; // Hide spinner if no data after X seconds
+      }
+    }, 10000); 
   }
 };
 </script>

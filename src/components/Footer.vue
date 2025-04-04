@@ -13,9 +13,16 @@ currentUser:{}
 }
 }, 
 mounted(){
-  window.emitter.on('current_user',(user_info)=>{
-  this.currentUser=user_info
-  })
+  if (window.emitter.userData) {
+    this.currentUser = window.emitter.userData;
+    console.log("Fetched from cached emitter:", this.currentUser);
+  }
+
+  // 2. Listen for current_user in case it comes after
+  window.emitter.on('current_user', (user_info) => {
+    console.log('current_user received:', user_info);
+    this.currentUser = user_info;
+  });
 },
 methods:{
 getYear(date){

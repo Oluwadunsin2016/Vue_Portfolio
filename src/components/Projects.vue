@@ -35,8 +35,10 @@
         {{ specialization }}
       </a>
     </div>
-
-    <div class="px-4 overflow-x-hidden">
+    <div v-if="isLoading" class="flex justify-center items-center min-h-[200px]">
+  <font-awesome-icon :icon="['fas', 'spinner']" spin class="text-blue-500 text-3xl" />
+    </div>
+    <div v-else class="px-4 overflow-x-hidden">
       <transition-group tag="div" name="projects" mode="out-in">
     <div
       class="my-4 grid grid-cols-1 sm:grid-cols-3 gap-8 md:grid-cols-4"
@@ -65,7 +67,6 @@
       </div>
     </div>  
   </transition-group>
-
     <transition-group tag='div' v-for="(specialization, index) in specializations"
       :key="index"  name="projects" mode="out-in">
     <div
@@ -95,7 +96,7 @@
       </div>
     </div>
   </transition-group>
-        <transition tag="div" name="projects" class="min-h-[22rem] flex items-center justify-center" v-if="selectedProjects.length < 1">
+        <transition tag="div" name="projects" class="min-h-[20rem] flex items-center justify-center" v-if="selectedProjects.length < 1">
           <h4>There is no project in this category yet</h4>
         </transition>
     </div>
@@ -122,6 +123,7 @@ export default {
       show: false,
       swiper: null,
       projects: [],
+      isLoading: true,
     };
   },
   created() {
@@ -139,10 +141,12 @@ export default {
         setTimeout(() => {
           this.projects = res.data;
           this.selectedProjects = this.projects;
+          this.isLoading=false
         }, 200);
       })
       .catch((err) => {
         console.log(err.message);
+        this.isLoading=false
       });
   },
   mounted() {

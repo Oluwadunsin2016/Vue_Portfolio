@@ -2,7 +2,7 @@ import './assets/main.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faArrowUpRightFromSquare, faBars, faCheckCircle, faCircleCheck, faCircleExclamation, faClock, faEnvelope, faLocationDot, faPhone, faTriangleExclamation, faX } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare, faBars, faCheckCircle, faCircleCheck, faCircleExclamation, faClock, faEnvelope, faLocationDot, faPhone, faSpinner, faTriangleExclamation, faWifi, faX } from '@fortawesome/free-solid-svg-icons';
 import { createApp } from 'vue'
 import App from './App.vue'
 // import { MotionPlugin } from '@vueuse/motion';
@@ -41,6 +41,6 @@ export default userId
 window.emitter=new TinyEmitter()
 
 // app.use(MotionPlugin)
-library.add(faBars,faX,faTwitter,faFacebook,faInstagram,faLinkedin,faEnvelope,faPhone,faLocationDot,faClock,faCheckCircle,faTelegram,faYoutube,faWhatsapp,faJs,faReact,faAngular,faVuejs,faHtml5,faCss3,faNode,faPhp,faLaravel,faGithub,faArrowUpRightFromSquare,faCircleExclamation,faCircleCheck,faTriangleExclamation);
+library.add(faBars,faX,faTwitter,faFacebook,faInstagram,faLinkedin,faEnvelope,faPhone,faLocationDot,faClock,faCheckCircle,faTelegram,faYoutube,faWhatsapp,faJs,faReact,faAngular,faVuejs,faHtml5,faCss3,faNode,faPhp,faLaravel,faGithub,faArrowUpRightFromSquare,faCircleExclamation,faCircleCheck,faTriangleExclamation,faSpinner,faWifi);
 app.component('font-awesome-icon', FontAwesomeIcon).mount('#app')
 
