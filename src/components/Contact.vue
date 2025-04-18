@@ -268,10 +268,16 @@ export default {
     };
   },
   created() {
+    if (window.emitter.userData) {
+      this.currentUser = window.emitter.userData;
+      console.log("Fetched from cached emitter:", this.currentUser);
+    }
+
     window.emitter.on("current_user", (user_info) => {
+      console.log("current_user received:", user_info);
       this.currentUser = user_info;
-      console.log(this.currentUser);
     });
+
   axios
         .get(`${baseURL}getSocialInformation/${userId}`)
         .then((res) => {
