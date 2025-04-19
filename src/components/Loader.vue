@@ -7,7 +7,7 @@
   color="#e5e7eb"
 />
 </div> -->
-<div class="flex flex-col items-center justify-center gap-2 min-h-screen dark:bg-gray-900 bg-gray-50">
+<section class="flex flex-col items-center justify-center gap-2 min-h-screen bg-slate-100 dark:bg-gray-800">
 
 <semipolar-spinner
   :animation-duration="2500"
@@ -15,7 +15,7 @@
   color="#3B82F6"
 />
 <p>Just a moment...</p>
-</div>
+</section>
 </template>
 
 <script>

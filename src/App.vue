@@ -1,22 +1,23 @@
 <template>
   <div class="min-h-screen dark:bg-gray-900 bg-gray-50 dark:text-gray-200">
  
-    <div v-if="isLoading">
-      <Loader />
-    </div>
-    <div v-else-if="isError" class="flex justify-center items-center h-screen text-center">
+    <Loader v-show="isLoading" />
+    <div v-show="isError && !isLoading" class="flex justify-center items-center h-screen text-center">
       <NetworkError />
     </div>
 
+   
     
-    <div v-else>
+    <div v-show="!isLoading && !isError">
       <Navbar />
       <Hero />
       <About />
       <Languages />
       <Services />
       <Projects />
+      <Testimonial />
       <Contact />
+      <!-- <Loader /> -->
       <Footer />
     </div>
   </div>
@@ -36,6 +37,7 @@ import userId, { baseURL } from '@/main';
 import axios from 'axios';
 import Loader from './components/Loader.vue';
 import NetworkError from './components/NetworkError.vue';
+import Testimonial from './components/Testimonial.vue';
 
 export default {
   name: "App",
@@ -49,7 +51,8 @@ export default {
     Contact,
     Footer,
     Loader,
-    NetworkError
+    NetworkError,
+    Testimonial
   },
   setup() {
     const isLoading = ref(true);
